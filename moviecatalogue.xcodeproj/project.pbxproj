@@ -189,6 +189,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EA6B35228C6468E00355FFF /* Build configuration list for PBXNativeTarget "moviecatalogue" */;
 			buildPhases = (
+				9EA6B36A28C64BB700355FFF /* ShellScript */,
 				9EA6B32428C6467D00355FFF /* Sources */,
 				9EA6B32528C6467D00355FFF /* Frameworks */,
 				9EA6B32628C6467D00355FFF /* Resources */,
@@ -307,6 +308,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9EA6B36A28C64BB700355FFF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint autocorrect\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9EA6B32428C6467D00355FFF /* Sources */ = {
