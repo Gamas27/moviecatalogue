@@ -15,7 +15,7 @@ struct Welcome: Decodable {
 }
 
 // MARK: - Result
-struct Result: Decodable {
+struct Result: Decodable, Hashable {
     let id, resultType: String
     let image: String
     let title, resultDescription: String
