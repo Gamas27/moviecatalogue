@@ -18,10 +18,12 @@ class MainView: UIViewController {
     @Published var keyStroke: String = ""
 
     var cancellables: Set<AnyCancellable> = []
+    let viewModel = ViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
+        setupObservers()
     }
 }
 
@@ -52,6 +54,17 @@ extension MainView {
             .receive(on: RunLoop.main)
             .sink { (keyWordValue) in
                 print(keyWordValue)
+                self.viewModel.keyWordSearch = keyWordValue
             }.store(in: &cancellables)
+
+        // DIFFABLE DS
+        viewModel.diffableDataSource = MoviesTableViewDiffableDataSource(tableView: tableview) { (tableView, indexPath, model) -> UITableViewCell? in
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.reuseIdentifier, for: indexPath) as? MovieCell
+            else { return UITableViewCell() }
+
+            cell.movieObject = model
+            return cell
+        }
     }
 }

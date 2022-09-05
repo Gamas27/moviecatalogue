@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieCell: UITableViewCell {
 
@@ -19,16 +20,17 @@ class MovieCell: UITableViewCell {
         }
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
     func setupData() {
-        guard let unwrappedMovieName = movieObject.title,
-            let unwrappedMovieDetails = movieObject.resultDescription
-        else { return }
+        guard let unwrappedMovieName = movieObject.title, let unwrappedMovieDetails = movieObject.resultDescription else { return }
 
         movieNameLabel.text = unwrappedMovieName
         movieDetailsLabel.text = unwrappedMovieDetails
 
-        if let unwrappedMovieImage = movieObject.image,
-        let imageURL = URL(string: unwrappedMovieImage) {
+        if let unwrappedMovieImage = movieObject.image, let imageURL = URL(string: unwrappedMovieImage) {
             movieImageView.activateSdWebImageLoader()
             movieImageView.sd_setImage(with: imageURL, completed: nil)
         } else {
