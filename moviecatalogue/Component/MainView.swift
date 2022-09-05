@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainView.swift
 //  moviecatalogue
 //
 //  Created by João Gameiro on 05/09/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
